@@ -1,0 +1,4 @@
+django
+django-environ
+django-debug-toolbar
+django-extensions
