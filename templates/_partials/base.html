@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block customcss %}
     {% endblock customcss %}
-    <title>{% block title %}Energy Portfolio CRM{% endblock title %}</title>
+    <title>{% block html_title %}{{ html_title }}{% endblock %}</title>
   </head>
   <body>
     <!-- Wrapper content -->
