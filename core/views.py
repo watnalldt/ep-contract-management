@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 class HTMLTitleMixin:
     html_title = ""
-    html_title_prefix = "EP CRM | "
+    html_title_prefix = "EP | "
     html_title_suffix = ""
     html_title_required = True
 

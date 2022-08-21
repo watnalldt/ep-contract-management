@@ -5,4 +5,4 @@ from core.views import HTMLTitleMixin
 
 class HomePageView(HTMLTitleMixin, TemplateView):
     template_name = "pages/index.html"
-    html_title = "Energy Solutions"
+    html_title = " Managing Energy Solutions"
