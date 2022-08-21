@@ -1,0 +1,72 @@
+/*--------------------------
+# Start Configuration
+------------------------- */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/*--------------------------
+# Buttons in Navbar
+------------------------- */
+#btn-nav {
+    width: 90px;
+    float: right;
+    margin-right: 25px;
+}
+
+/* Button 'Enter to login to CRM */
+#btn-enter {
+    width: 90px;
+}
+
+/*--------------------------
+# Wrapper
+------------------------- */
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+#footer,
+.push {
+    height: 50px;
+}
+
+/*--------------------------
+# Errors 404 and 500
+------------------------- */
+/* Error Position */
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+/* Error Text Levels */
+.error-txt1 {
+  font-size: 18px;
+}
+
+.error-txt2 {
+  font-size: 20px;
+}
+
+.error-404 {
+  font-size: 120px;
+}
+
+#card-login {
+  width: 200px;
+}
+
+.login-border {
+  border-top: .4rem solid #198754;
+  border-bottom: .4rem solid #198754;
+  border-radius: 10px;
+
+}
