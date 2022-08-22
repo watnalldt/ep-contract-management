@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "account_managers.apps.AccountManagersConfig",
     "client_managers.apps.ClientManagersConfig",
-    "clients.apps.ClientManagersConfig",
+    "clients.apps.ClientsConfig",
     "core.apps.CoreConfig",
     "pages.apps.PagesConfig",
     "import_export",
