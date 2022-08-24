@@ -1,0 +1,51 @@
+{% extends '_partials/dashboard_base.html' %}
+{% load i18n %}
+{% block title %}{{ client }} | All Contracts {% endblock title %}
+
+{% block content %}
+  <br>
+  <div class="container">
+    <h4 style="text-align:center;">{{ client }} - All Contracts</h4>
+
+    <br>
+    <table class="table table-bordered" id="example" style="text-align: center;">
+      <thead class ="table-success">
+        <tr>
+          <th>ID</th>
+          <th>Site Name</th>
+          <th>Site Address</th>
+          <th>MPAN/MPR</th>
+          <th>CED</th>
+          <th>Meter Serial No</th>
+          <th>Top Line</th>
+          <th>EAC</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for contract in client.client_contracts.all  %}
+          <tr>
+            <td><a href="{{ contract.get_absolute_url }}">{{ contract.pk}}</a></td>
+            <td>{{ contract.site_name | title | truncatechars:30 }}</td>
+            <td>{{ contract.site_address | title | truncatechars:30}}</td>
+            <td>{{ contract.mpan_mpr}}</td>
+
+
+            {% if contract.is_ooc %}
+
+              <td>{% trans "Out of Contract" %}</td>
+            {% else %}
+              <td>{{ contract.contract_end_date }} </td>
+
+            {% endif %}
+
+
+            <td>{{contract.meter_serial_number }}</td>
+            <td>{{ contract.top_line }}</td>
+            <td>{{ contract.eac}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}

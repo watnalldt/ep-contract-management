@@ -1,0 +1,23 @@
+{% extends '_partials/base.html' %}
+
+{% block html_title %}EP | Page not found (404){% endblock %}
+
+<!-- Block navbar content -->
+{% block navbar %}
+
+
+{% endblock navbar %}
+<!-- Body Content -->
+{% block content %}
+  <div class="text-center error">
+    <div class="text-center text-danger error-body">
+      {%  block error-body %}
+        <span class="text-danger mb-5 error-404">404</span>
+        <h5 class="text-danger mb-3">THE PAGE YOU HAVE ENTERED DOES NOT EXIST</h5>
+        <h6 class="text-dark" style="line-height: 1.5em;">Probably the contract no longer exists. Please contact our <a href="mailto:">Technical Support</a></h6>
+
+
+        </div>
+        </div>
+      {% endblock error-body %}
+{% endblock content %}

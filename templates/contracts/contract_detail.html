@@ -1,0 +1,66 @@
+{% extends '_partials/dashboard_base.html' %}
+{% load static i18n %}
+{% block title %} {{ contract.site_name | title }} {% endblock title %}
+
+{% block content %}
+  <br>
+  <h4 style="text-align: center;">Client: {{ contract.client_name}}</h4>
+  <hr>
+  <h5 class="text-center">Site Name: {{ contract.site_name | title}}</h5>
+  <div class="card-group">
+
+    <div class="card">
+
+      <div class="card-body">
+        <h6 class="card-title">Site Details</h6>
+        <hr>
+        <p class="card-text">Site Address: {{ contract.site_address | title }}</p>
+        {% if contract.account_number == None %}
+          <p>{% trans "" %}</p>
+        {% else %}
+          <p class="card-text">Account Number: {{ contract.account_number }}</p>
+        {% endif %}
+        <p class="card-text">Company Reg Number: {{ contract.company_reg_number }}</p>
+        <p class="card-text">Suppler: {{ contract.supplier }}</p>
+        <p class="card-text">Fuel Type: {{ contract.fuel_type }}</p>
+        {% if contract.vat == None %}
+          <p>{% trans 'Vat Rate: 0' %}</p>
+        {% else %}
+          <p class="card-text">VAT Rate: {{ contract.vat }}</p>
+        {% endif %}
+        {% if contract.contract_end_date == None %}
+          <p>{% trans "Out of Contract" %}</p>
+
+        {% else %}
+          <p>Contract End Date: {{ contract.contract_end_date }} </p>
+        {% endif %}
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Site Data</h6>
+        <hr>
+        <p class="card-text">Meter Serial Number: {{ contract.meter_serial_number }}</p>
+        <p class="card-text">MPAN/MPR: {{ contract.mpan_mpr }}</p>
+        <p class="card-text">Top Line: {{ contract.top_line }}</p>
+        <p class="card-text">EAC: {{ contract.eac }}</p>
+        {% if contract.smart_meter == None %}
+          {% trans 'No Smart Meter' %}
+        {% else%}
+          <p>Smart Meter: {{ contract.smart_meter }}</p>
+        {% endif %}
+        <p class="card-text"></p>
+        <p class="card-text"></p>
+        <p class="card-text"></p>
+        <p class="card-text"></p>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3 text-center">
+    <a href="{% url 'contracts:contract_pdf_view' contract.id%}" target="_blank"><button class="btn btn-secondary btn-sm mt-3">Download PDF</button></a>
+  </div>
+
+{% endblock content %}

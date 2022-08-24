@@ -1,0 +1,43 @@
+
+{% extends '_partials/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block navbar %}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-5">
+    <div class="col-sm">
+
+
+
+      <img src="{% static 'img/energy-portfolio-logo.png' %}" alt="" width="250" height="94">
+
+
+    </a>
+  </div>
+
+
+{% endblock navbar %}
+
+
+{%  block content %}
+
+  <div class="container" id="card-login" style="margin-top: 60px; width: 40%">
+
+    <div class="card p-3 login-border">
+      <a class="btn btn-secondary" style="cursor: default;">
+        <i class="fas fa-lock"></i>
+        &nbsp;&nbsp;ENERGY PORTFOLIO CONTRACT MANAGEMENT LOGIN
+      </a>
+      <br>
+
+      <form method="POST" method="{% url 'users:login' %}" autocomplete="off" novalidate>
+        {% csrf_token %}
+        {{ form | crispy }}
+        <div class="text-center">
+          <input class="btn btn-success btn-sm mt-3" type="submit" value="Enter" id="btn-enter">
+          <a href="{% url 'password_reset'  %}" class="btn btn-danger btn-sm id=btn-password mt-3">Password Reset</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock content %}

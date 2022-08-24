@@ -1,0 +1,44 @@
+{% extends '_partials/base.html' %}
+{% load i18n %}
+
+{% block title %} {{ block.super }} | All Contracts{% endblock title %}
+
+{% block content %}
+  <div class="container">
+
+    <table id="example" class="table" style="width:100%">
+      <thead class ="table-success">
+        <tr>
+          <th>ID</th>
+          <th>Client</th>
+          <th>Site Name</th>
+          <th>Supplier</th>
+          <th>Utility</th>
+          <th>MPAN/MPR</th>
+          <th>CED</th>
+        </tr>
+
+      </thead>
+      <!--  Data from Backend -->
+      <tbody>
+        <tr>
+          {% for contract in contracts %}
+            <td><a href="{{ contract.get_absolute_url }}">{{ contract.pk}}</a></td>
+            <td>{{ contract.client_name }}</td>
+            <td>{{ contract.site_name | title | truncatechars:30 }}</td>
+            <td>{{ contract.supplier}}</td>
+            <td>{{contract.utility}}</td>
+            <td>{{ contract.mpan_mpr}}</td>
+            {% if contract.is_ooc %}
+              <td>{% trans "Out of Contract" %}</td>
+            {% else %}
+              <td>{{ contract.contract_end_date }} </td>
+            {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% include '_partials/pagination.html' %}
+{% endblock content %}

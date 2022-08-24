@@ -1,0 +1,31 @@
+{% extends '_partials/base.html' %}
+{% block customcss %}
+
+
+{% endblock customcss %}
+{% block html_title %} {{ html_title }} {% endblock html_title %}
+
+{% block nav-btn %}
+  <div class='row g-1'>
+    <div class='col-md-5 w-auto ms-auto'>
+      <div class="btn-group " role="group" aria-label="Dashboard">
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'password_reset'  %}" class="btn btn-outline-danger btn-sm text-light border-light id=btn-password">Password Reset</a>
+          <a class="btn btn-outline-danger btn-sm text-light border-light" id="btn-nav" data-bs-toggle="modal" data-bs-target="#logoutModal">Log Out</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+
+{% endblock nav-btn %}
+
+
+{% block content %}
+
+
+
+
+
+
+{% endblock content %}

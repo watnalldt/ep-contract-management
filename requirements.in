@@ -3,6 +3,9 @@ django-environ
 django-debug-toolbar
 django-extensions
 django-import-export
+django-simple-history
+crispy-bootstrap5
+xhtml2pdf
 # Tests
 coverage
 pytest

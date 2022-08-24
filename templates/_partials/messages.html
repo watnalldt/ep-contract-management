@@ -1,0 +1,8 @@
+{% for message in messages %}
+  <!-- Success Alert -->
+  <div class="alert {{ message.tags }} alert-success alert-dismissible d-flex align-items-center fade show">
+    <i class="fa-solid fa-circle-check"></i>&nbsp;{{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+  </div>
+{% endfor %}
