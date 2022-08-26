@@ -6,12 +6,13 @@
   <div class="container mt-3">
     <h5 class="text-center"><i class="fa-solid fa-user-group"></i>&nbsp;{{ request.user.name }}&nbsp;Clients</h5>
     <br>
-    <table class="table table-sm table-bordered" id="example" style="text-align: center;">
+    <table id="example" class="table table-bordered" style="text-center">
       <thead class ="table-success">
         <tr>
-          <th>ID</th>
+
           <th>Client Name</th>
           <th>Client Manager</th>
+          <th>View Detail</th>
 
         </tr>
 
@@ -23,9 +24,10 @@
 
           {% for client in client_list %}
             <tr>
-              <td>  <a href="{{ client.get_absolute_url }}">{{ client.id}}</a></td>
+
               <td>{{ client.client_name }}</td>
-              <td>{{ client.client_manager }}</td>
+              <td>{{ client.client_manager.all|join:"," }}</td>
+              <td> <a href="{{ client.get_absolute_url }}" class="btn btn-success text-center"><i class="fa-solid fa-eye"></i></a></td>
             </tr>
           {% endfor %}
 

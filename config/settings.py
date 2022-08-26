@@ -54,6 +54,9 @@ THIRD_PARTY_APPS = [
     "django_extensions",
     "crispy_forms",
     "crispy_bootstrap5",
+    "django_htmx",
+    "django_tables2",
+    "django_filters",
 ]
 
 PROJECT_APPS = [
@@ -77,6 +80,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 # Enable the debug toolbar only in DEBUG mode.
@@ -150,7 +154,7 @@ USE_TZ = True
 AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 
 AUTH_USER_MODEL = "users.CustomUser"
-LOGOUT_REDIRECT_URL = "users:login"
+LOGOUT_REDIRECT_URL = "pages:home"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/

@@ -8,8 +8,6 @@ from clients.models import Client
 from core.decorators import account_manager_required
 from core.views import HTMLTitleMixin
 
-from .models import AccountManager
-
 User = get_user_model()
 
 
@@ -17,7 +15,6 @@ User = get_user_model()
 class AccountManagerListView(LoginRequiredMixin, HTMLTitleMixin, ListView):
     model = Client
     template_name = "account_managers/dashboard.html"
-    paginate_by = 8
     html_title = "Account Manager Dashboard"
 
     def get_queryset(self):

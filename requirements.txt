@@ -43,7 +43,10 @@ django==4.1
     #   crispy-bootstrap5
     #   django-debug-toolbar
     #   django-extensions
+    #   django-filter
+    #   django-htmx
     #   django-import-export
+    #   django-tables2
 django-crispy-forms==1.14.0
     # via crispy-bootstrap5
 django-debug-toolbar==3.6.0
@@ -52,9 +55,15 @@ django-environ==0.9.0
     # via -r requirements.in
 django-extensions==3.2.0
     # via -r requirements.in
+django-filter==22.1
+    # via -r requirements.in
+django-htmx==1.12.1
+    # via -r requirements.in
 django-import-export==2.8.0
     # via -r requirements.in
 django-simple-history==3.1.1
+    # via -r requirements.in
+django-tables2==2.4.1
     # via -r requirements.in
 et-xmlfile==1.1.0
     # via openpyxl

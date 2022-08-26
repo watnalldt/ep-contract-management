@@ -6,16 +6,17 @@
 {% block content %}
   <div class="container">
 
-    <table id="example" class="table" style="width:100%">
+    <table id="example" class="table table-bordered" style="font-size:14px;">
       <thead class ="table-success">
         <tr>
-          <th>ID</th>
+
           <th>Client</th>
           <th>Site Name</th>
           <th>Supplier</th>
           <th>Utility</th>
           <th>MPAN/MPR</th>
           <th>CED</th>
+          <th>ID</th>
         </tr>
 
       </thead>
@@ -23,7 +24,7 @@
       <tbody>
         <tr>
           {% for contract in contracts %}
-            <td><a href="{{ contract.get_absolute_url }}">{{ contract.pk}}</a></td>
+
             <td>{{ contract.client_name }}</td>
             <td>{{ contract.site_name | title | truncatechars:30 }}</td>
             <td>{{ contract.supplier}}</td>
@@ -33,6 +34,7 @@
               <td>{% trans "Out of Contract" %}</td>
             {% else %}
               <td>{{ contract.contract_end_date }} </td>
+              <td><a href="{{ contract.get_absolute_url }}"><i class="fa-solid fa-eye"></i></a></td>
             {% endif %}
             </tr>
           {% endfor %}

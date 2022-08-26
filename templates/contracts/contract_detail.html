@@ -1,6 +1,6 @@
 {% extends '_partials/dashboard_base.html' %}
 {% load static i18n %}
-{% block title %} {{ contract.site_name | title }} {% endblock title %}
+{% block html_title %} {{ html_title }} {% endblock html_title %}
 
 {% block content %}
   <br>
@@ -14,7 +14,7 @@
       <div class="card-body">
         <h6 class="card-title">Site Details</h6>
         <hr>
-        <p class="card-text">Site Address: {{ contract.site_address | title }}</p>
+        <p class="card-text">Site Address: {{ contract.site_address |title }}</p>
         {% if contract.account_number == None %}
           <p>{% trans "" %}</p>
         {% else %}
@@ -26,7 +26,7 @@
         {% if contract.vat == None %}
           <p>{% trans 'Vat Rate: 0' %}</p>
         {% else %}
-          <p class="card-text">VAT Rate: {{ contract.vat }}</p>
+          <p class="card-text">VAT Rate: {{ contract.vat }}%</p>
         {% endif %}
         {% if contract.contract_end_date == None %}
           <p>{% trans "Out of Contract" %}</p>

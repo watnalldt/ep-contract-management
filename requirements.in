@@ -11,3 +11,6 @@ coverage
 pytest
 pytest-sugar
 pytest-django
+django-tables2
+django-filter
+django-htmx

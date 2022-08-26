@@ -1,6 +1,6 @@
 {% extends '_partials/dashboard_base.html' %}
 {% load i18n %}
-{% block title %}{{ client }} | All Contracts {% endblock title %}
+{% block html_title %} {{ html_title }} Contracts {% endblock html_title %}
 
 {% block content %}
   <br>
@@ -11,7 +11,7 @@
     <table class="table table-bordered" id="example" style="text-align: center;">
       <thead class ="table-success">
         <tr>
-          <th>ID</th>
+
           <th>Site Name</th>
           <th>Site Address</th>
           <th>MPAN/MPR</th>
@@ -19,12 +19,13 @@
           <th>Meter Serial No</th>
           <th>Top Line</th>
           <th>EAC</th>
+          <th>Details</th>
         </tr>
       </thead>
       <tbody>
         {% for contract in client.client_contracts.all  %}
           <tr>
-            <td><a href="{{ contract.get_absolute_url }}">{{ contract.pk}}</a></td>
+
             <td>{{ contract.site_name | title | truncatechars:30 }}</td>
             <td>{{ contract.site_address | title | truncatechars:30}}</td>
             <td>{{ contract.mpan_mpr}}</td>
@@ -42,6 +43,7 @@
             <td>{{contract.meter_serial_number }}</td>
             <td>{{ contract.top_line }}</td>
             <td>{{ contract.eac}}</td>
+            <td><a href="{{ contract.get_absolute_url }}" class="btn btn-success text-center"><i class="fa-solid fa-eye"></i></a></td>
           </tr>
         {% endfor %}
       </tbody>

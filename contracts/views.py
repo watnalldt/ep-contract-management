@@ -1,10 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404
 from django.template.loader import get_template
 from django.views.generic import DetailView, ListView
 from xhtml2pdf import pisa
+
+from core.views import HTMLTitleMixin
 
 from .models import Contract
 
@@ -16,10 +18,13 @@ class ContractListView(ListView):
     paginate_by = 10
 
 
-class ContractDetailView(LoginRequiredMixin, DetailView):
+class ContractDetailView(LoginRequiredMixin, HTMLTitleMixin, DetailView):
     model = Contract
     template_name = "contracts/contract_detail.html"
     login_url = "/users/login/"
+
+    def get_html_title(self):
+        return self.object.site_name
 
 
 @login_required(login_url="/users/login/")

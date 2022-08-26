@@ -18,6 +18,7 @@ class ContractsManager(models.Manager):
 
 
 class Contract(TimeStampedModel):
+
     client_name = models.ForeignKey(
         Client, on_delete=models.CASCADE, related_name="client_contracts"
     )
@@ -42,7 +43,6 @@ class Contract(TimeStampedModel):
     is_directors_approval = models.BooleanField(default=False)
     eac = models.CharField(max_length=30)
     vat = models.CharField(max_length=10, null=True, blank=True)
-    # TODO: 'check returning a whole number'
     smart_meter = models.CharField(max_length=100, null=True, blank=True)
     notes = models.TextField(null=True, blank=True)
     history = HistoricalRecords()

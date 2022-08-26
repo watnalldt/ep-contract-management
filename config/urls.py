@@ -26,6 +26,7 @@ urlpatterns = [
     ),
     path("account_managers/", include("account_managers.urls")),
     path("clients/", include("clients.urls")),
+    path("contracts/", include("contracts.urls")),
     path("", include("pages.urls")),
 ]
 if settings.DEBUG:
